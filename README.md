@@ -2,7 +2,7 @@
 smartdoc生成在线接口文档
 
 ## smart-doc在线生成接口文档
-### （1）gradle中引入smart-doc包
+#### （1）gradle中引入smart-doc包
     buildscript {
          repositories {
              maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
@@ -24,7 +24,7 @@ smartdoc生成在线接口文档
     }
 `注：plugins前面只能有buildscript模块，否则会报错`
 
-####（2）在resources目录下创建json文件，用于存放smart-doc的一些配置
+#### （2）在resources目录下创建json文件，用于存放smart-doc的一些配置
 ##### 命名为：default.json
     {
         "serverUrl": "http://127.0.0.1:8009/smart", --文档访问地址，使用ip时，则浏览器访问html也需要用ip，否则调试接口时，会报跨域问题
@@ -34,7 +34,7 @@ smartdoc生成在线接口文档
         "projectName": "springBootSmartDoc",   --生成的接口文档名称
         "createDebugPage": true     --是否创建测试模式
     }
-####（3）在生成接口的controller类中，通过doc形式对类，方法，参数进行注释
+#### （3）在生成接口的controller类中，通过doc形式对类，方法，参数进行注释
     /**
       * 用户管理接口
       * @author: jiangjs
@@ -56,7 +56,7 @@ smartdoc生成在线接口文档
          return userManageService.login(user);
       }
     }
-####（4）如果在方法中使用了实体作为参数，则在实体中需要doc注释
+#### （4）如果在方法中使用了实体作为参数，则在实体中需要doc注释
     @Data
     @Accessors(chain = true)
     public class User {
@@ -69,10 +69,10 @@ smartdoc生成在线接口文档
           */
        private String passWord;
     }
-####（5）执行gradle下的documentation中生成smart-doc在线文档
+#### （5）执行gradle下的documentation中生成smart-doc在线文档
 ![img.png](img.png)
 
-####（6）启动项目，并通过url地址进行访问
+#### （6）启动项目，并通过url地址进行访问
 ##### 例如：http://localhost:8009/smart/doc/debug-all.html
 ![img_1.png](img_1.png)
 
