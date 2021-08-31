@@ -1,6 +1,9 @@
 # springboot-smartdoc
 smartdoc生成在线接口文档
 
+### smart-doc gitee地址
+**https://gitee.com/smart-doc-team/smart-doc**
+
 ## smart-doc在线生成接口文档
 #### （1）gradle中引入smart-doc包
     buildscript {
