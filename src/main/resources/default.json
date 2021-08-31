@@ -1,0 +1,8 @@
+{
+  "serverUrl": "http://127.0.0.1:8009/smart",
+  "isStrict": false,
+  "allInOne": true,
+  "outPath": "src/main/resources/static/doc",
+  "projectName": "springBootSmartDoc",
+  "createDebugPage": true
+}

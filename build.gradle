@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url = uri("https://plugins.gradle.org/m2/") }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.shalousun:smart-doc-gradle-plugin:[2.2.1]'
+    }
+}
+plugins {
+	id 'org.springframework.boot' version '2.0.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "com.github.shalousun.smart-doc" version "2.2.1"
+}
+
+subprojects{
+	apply plugin: 'com.github.shalousun.smart-doc'
+	smartdoc {
+		configFile = file("src/main/resources/smart-doc.json")
+	}
+}
+group = 'com.jiashn'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
